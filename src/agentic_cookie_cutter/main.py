@@ -1,8 +1,3 @@
-# /// script
-# requires-python = ">=3.11"
-# dependencies = []
-# ///
-
 """agentic-cookie-cutter: Set up agentic workflow configuration for AI coding tools."""
 
 import argparse
@@ -97,12 +92,12 @@ def _run_cli(cmd: list[str], cwd: Path) -> str | None:
 
 
 def analyze_with_gemini(target: Path, template: str, filename: str) -> str | None:
-    print(f"  analyzing codebase with Gemini CLI...")
+    print("  analyzing codebase with Gemini CLI...")
     return _run_cli(["gemini", "-p", _analysis_prompt(filename, template)], target)
 
 
 def analyze_with_claude(target: Path, template: str, filename: str) -> str | None:
-    print(f"  analyzing codebase with Claude CLI...")
+    print("  analyzing codebase with Claude CLI...")
     return _run_cli(["claude", "-p", _analysis_prompt(filename, template)], target)
 
 

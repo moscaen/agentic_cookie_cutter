@@ -1,10 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "agentic-cookie-cutter"
 version = "0.1.0"
-description = "Add your description here"
+description = "Bootstrap agentic workflow configuration for AI coding assistants (Gemini CLI and Claude Code)."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-agentic-cookie-cutter = "main:main"
+agentic-cookie-cutter = "agentic_cookie_cutter.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentic_cookie_cutter"]

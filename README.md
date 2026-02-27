@@ -21,8 +21,11 @@ Running `init` against a project directory generates a ready-to-use `.gemini/` o
 ## Usage
 
 ```bash
+# Install (editable) — makes the agentic-cookie-cutter command available
+uv sync
+
 # Gemini CLI (default) — analyzes the codebase automatically with the Gemini CLI
-uv run main.py init /path/to/project \
+uv run agentic-cookie-cutter init /path/to/project \
   --project-name "My API" \
   --description "REST API for managing orders." \
   --tech-stack "Python, FastAPI, PostgreSQL" \
@@ -31,19 +34,19 @@ uv run main.py init /path/to/project \
   --linter ruff
 
 # Claude Code — analyzes the codebase automatically with the Claude CLI
-uv run main.py init /path/to/project --type claude ...
+uv run agentic-cookie-cutter init /path/to/project --type claude ...
 
 # Both tools at once
-uv run main.py init /path/to/project --type both ...
+uv run agentic-cookie-cutter init /path/to/project --type both ...
 
 # Skip AI analysis; use template substitution only
-uv run main.py init /path/to/project --no-analyze
+uv run agentic-cookie-cutter init /path/to/project --no-analyze
 
 # Select a subset of skills
-uv run main.py init /path/to/project --skills developer,git-committer,code-reviewer
+uv run agentic-cookie-cutter init /path/to/project --skills developer,git-committer,code-reviewer
 
 # Overwrite existing files
-uv run main.py init /path/to/project --overwrite
+uv run agentic-cookie-cutter init /path/to/project --overwrite
 ```
 
 ### Codebase analysis
@@ -55,7 +58,7 @@ If the CLI is not installed or returns an error, the tool falls back to plain te
 ## Template structure
 
 ```text
-templates/
+src/agentic_cookie_cutter/templates/
 ├── .gemini/
 │   ├── GEMINI.md               # Project context ({{VARIABLE}} placeholders)
 │   ├── .geminiignore
